@@ -1,0 +1,547 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://Scenes/States/PlayState.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Sprites/Stages/Forever/ground.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/Stages/Forever/tanktiles.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/Stages/Forever/tracks.tres" type="Texture" id=4]
+[ext_resource path="res://Scripts/Stages/Forever/Ground.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/States/PlayState/Health/ForeverHealth.gd" type="Script" id=6]
+[ext_resource path="res://Assets/Sprites/Characters/Lui Boyfriend Forever.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprites/Characters/Small Boyfriend Forever.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Sprites/Characters/Boyfriend Forever.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Sounds/forever_powerdown.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Assets/Sounds/deadtheme.ogg" type="AudioStream" id=11]
+[ext_resource path="res://Assets/Sprites/Characters/Dead Boyfriend Forever.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Other/Fonts/accuracy.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Other/Fonts/marioforever2.png" type="Texture" id=14]
+[ext_resource path="res://Scripts/Stages/Forever/Accuracy.gd" type="Script" id=15]
+[ext_resource path="res://Scripts/Stages/Forever/Score.gd" type="Script" id=16]
+[ext_resource path="res://Assets/Other/Fonts/miss.png" type="Texture" id=17]
+[ext_resource path="res://Scripts/Stages/Forever/Miss.gd" type="Script" id=18]
+
+[sub_resource type="Animation" id=5]
+resource_name = "die"
+length = 3.25
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:velocity_active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:velocity")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 0, 1 ),
+"update": 1,
+"values": [ 0.0, -1000.0 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("Dead")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 3.25 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "reload"
+} ]
+}
+
+[sub_resource type="Gradient" id=2]
+colors = PoolColorArray( 0.0313726, 0, 0, 1, 0.16, 0.1552, 0.1552, 1 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+width = 720
+
+[sub_resource type="TileSet" id=1]
+0/name = "ground.png 0"
+0/texture = ExtResource( 2 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 32, 32 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+1/name = "ground.png 1"
+1/texture = ExtResource( 2 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 32, 32, 32 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
+
+[sub_resource type="TileSet" id=4]
+0/name = "tanktiles.png 0"
+0/texture = ExtResource( 3 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 32, 32 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+1/name = "tanktiles.png 1"
+1/texture = ExtResource( 3 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 32, 0, 32, 32 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
+2/name = "tanktiles.png 2"
+2/texture = ExtResource( 3 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 64, 0, 32, 32 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape_one_way = false
+2/shape_one_way_margin = 0.0
+2/shapes = [  ]
+2/z_index = 0
+3/name = "tanktiles.png 3"
+3/texture = ExtResource( 3 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 96, 0, 32, 32 )
+3/tile_mode = 0
+3/occluder_offset = Vector2( 0, 0 )
+3/navigation_offset = Vector2( 0, 0 )
+3/shape_offset = Vector2( 0, 0 )
+3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+3/shape_one_way = false
+3/shape_one_way_margin = 0.0
+3/shapes = [  ]
+3/z_index = 0
+4/name = "tanktiles.png 4"
+4/texture = ExtResource( 3 )
+4/tex_offset = Vector2( 0, 0 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 0, 32, 32, 32 )
+4/tile_mode = 0
+4/occluder_offset = Vector2( 0, 0 )
+4/navigation_offset = Vector2( 0, 0 )
+4/shape_offset = Vector2( 0, 0 )
+4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+4/shape_one_way = false
+4/shape_one_way_margin = 0.0
+4/shapes = [  ]
+4/z_index = 0
+5/name = "tanktiles.png 5"
+5/texture = ExtResource( 3 )
+5/tex_offset = Vector2( 0, 0 )
+5/modulate = Color( 1, 1, 1, 1 )
+5/region = Rect2( 32, 32, 32, 32 )
+5/tile_mode = 0
+5/occluder_offset = Vector2( 0, 0 )
+5/navigation_offset = Vector2( 0, 0 )
+5/shape_offset = Vector2( 0, 0 )
+5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+5/shape_one_way = false
+5/shape_one_way_margin = 0.0
+5/shapes = [  ]
+5/z_index = 0
+6/name = "tanktiles.png 6"
+6/texture = ExtResource( 3 )
+6/tex_offset = Vector2( 0, 0 )
+6/modulate = Color( 1, 1, 1, 1 )
+6/region = Rect2( 64, 32, 32, 32 )
+6/tile_mode = 0
+6/occluder_offset = Vector2( 0, 0 )
+6/navigation_offset = Vector2( 0, 0 )
+6/shape_offset = Vector2( 0, 0 )
+6/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+6/shape_one_way = false
+6/shape_one_way_margin = 0.0
+6/shapes = [  ]
+6/z_index = 0
+7/name = "tanktiles.png 7"
+7/texture = ExtResource( 3 )
+7/tex_offset = Vector2( 0, 0 )
+7/modulate = Color( 1, 1, 1, 1 )
+7/region = Rect2( 96, 32, 32, 32 )
+7/tile_mode = 0
+7/occluder_offset = Vector2( 0, 0 )
+7/navigation_offset = Vector2( 0, 0 )
+7/shape_offset = Vector2( 0, 0 )
+7/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+7/shape_one_way = false
+7/shape_one_way_margin = 0.0
+7/shapes = [  ]
+7/z_index = 0
+8/name = "tanktiles.png 8"
+8/texture = ExtResource( 3 )
+8/tex_offset = Vector2( 0, 0 )
+8/modulate = Color( 1, 1, 1, 1 )
+8/region = Rect2( 0, 64, 32, 32 )
+8/tile_mode = 0
+8/occluder_offset = Vector2( 0, 0 )
+8/navigation_offset = Vector2( 0, 0 )
+8/shape_offset = Vector2( 0, 0 )
+8/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+8/shape_one_way = false
+8/shape_one_way_margin = 0.0
+8/shapes = [  ]
+8/z_index = 0
+9/name = "tracks.tres 9"
+9/texture = ExtResource( 4 )
+9/tex_offset = Vector2( 0, 0 )
+9/modulate = Color( 1, 1, 1, 1 )
+9/region = Rect2( 0, 0, 32, 32 )
+9/tile_mode = 0
+9/occluder_offset = Vector2( 0, 0 )
+9/navigation_offset = Vector2( 0, 0 )
+9/shape_offset = Vector2( 0, 0 )
+9/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+9/shape_one_way = false
+9/shape_one_way_margin = 0.0
+9/shapes = [  ]
+9/z_index = 0
+10/name = "tracks.tres 10"
+10/texture = ExtResource( 4 )
+10/tex_offset = Vector2( 0, 0 )
+10/modulate = Color( 1, 1, 1, 1 )
+10/region = Rect2( 32, 0, 32, 32 )
+10/tile_mode = 0
+10/occluder_offset = Vector2( 0, 0 )
+10/navigation_offset = Vector2( 0, 0 )
+10/shape_offset = Vector2( 0, 0 )
+10/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+10/shape_one_way = false
+10/shape_one_way_margin = 0.0
+10/shapes = [  ]
+10/z_index = 0
+11/name = "tracks.tres 11"
+11/texture = ExtResource( 4 )
+11/tex_offset = Vector2( 0, 0 )
+11/modulate = Color( 1, 1, 1, 1 )
+11/region = Rect2( 64, 0, 32, 32 )
+11/tile_mode = 0
+11/occluder_offset = Vector2( 0, 0 )
+11/navigation_offset = Vector2( 0, 0 )
+11/shape_offset = Vector2( 0, 0 )
+11/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+11/shape_one_way = false
+11/shape_one_way_margin = 0.0
+11/shapes = [  ]
+11/z_index = 0
+12/name = "tanktiles.png 12"
+12/texture = ExtResource( 3 )
+12/tex_offset = Vector2( 0, 0 )
+12/modulate = Color( 1, 1, 1, 1 )
+12/region = Rect2( 32, 64, 32, 32 )
+12/tile_mode = 0
+12/occluder_offset = Vector2( 0, 0 )
+12/navigation_offset = Vector2( 0, 0 )
+12/shape_offset = Vector2( 0, 0 )
+12/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+12/shape_one_way = false
+12/shape_one_way_margin = 0.0
+12/shapes = [  ]
+12/z_index = 0
+
+[node name="Forever" instance=ExtResource( 1 )]
+rating_path = "res://Scenes/States/PlayState/ForeverRating.tscn"
+lock_camera = true
+miss_anims = false
+
+[node name="HealthSystem" parent="." index="0"]
+script = ExtResource( 6 )
+health = 3.0
+max_health = 3
+spritesheets = [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 7 ) ]
+gravity = 35.0
+
+[node name="Powerdown" type="AudioStreamPlayer" parent="HealthSystem" index="0"]
+stream = ExtResource( 10 )
+volume_db = -2.0
+
+[node name="Dead" type="AudioStreamPlayer" parent="HealthSystem" index="1"]
+stream = ExtResource( 11 )
+volume_db = 20.0
+
+[node name="BF" type="Sprite" parent="HealthSystem" index="2"]
+visible = false
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HealthSystem" index="3"]
+anims/die = SubResource( 5 )
+
+[node name="HealthBar" parent="HUD/HudElements" index="4"]
+visible = false
+
+[node name="Score" parent="HUD/HudElements" index="7"]
+visible = false
+text = "10291"
+
+[node name="Rank" parent="HUD/HudElements" index="8"]
+visible = false
+
+[node name="Info" type="Control" parent="HUD/HudElements" index="12"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Accuracy" type="Sprite" parent="HUD/HudElements/Info" index="0"]
+position = Vector2( 256, 392 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+centered = false
+script = ExtResource( 15 )
+current_scene_path = NodePath("../../../..")
+
+[node name="Num0" type="Sprite" parent="HUD/HudElements/Info/Accuracy" index="0"]
+position = Vector2( 0, 16 )
+texture = ExtResource( 14 )
+centered = false
+hframes = 10
+vframes = 4
+frame = 39
+
+[node name="Num1" type="Sprite" parent="HUD/HudElements/Info/Accuracy" index="1"]
+position = Vector2( 16, 16 )
+texture = ExtResource( 14 )
+centered = false
+hframes = 10
+vframes = 4
+frame = 1
+
+[node name="Num2" type="Sprite" parent="HUD/HudElements/Info/Accuracy" index="2"]
+position = Vector2( 32, 16 )
+texture = ExtResource( 14 )
+centered = false
+hframes = 10
+vframes = 4
+
+[node name="Num3" type="Sprite" parent="HUD/HudElements/Info/Accuracy" index="3"]
+position = Vector2( 48, 16 )
+texture = ExtResource( 14 )
+centered = false
+hframes = 10
+vframes = 4
+
+[node name="Num4" type="Sprite" parent="HUD/HudElements/Info/Accuracy" index="4"]
+position = Vector2( 64, 16 )
+texture = ExtResource( 14 )
+centered = false
+hframes = 10
+vframes = 4
+frame = 37
+
+[node name="Num5" type="Sprite" parent="HUD/HudElements/Info/Accuracy" index="5"]
+position = Vector2( 80, 16 )
+texture = ExtResource( 14 )
+centered = false
+hframes = 10
+vframes = 4
+
+[node name="Num6" type="Sprite" parent="HUD/HudElements/Info/Accuracy" index="6"]
+position = Vector2( 96, 16 )
+texture = ExtResource( 14 )
+centered = false
+hframes = 10
+vframes = 4
+
+[node name="Num7" type="Sprite" parent="HUD/HudElements/Info/Accuracy" index="7"]
+position = Vector2( 112, 16 )
+texture = ExtResource( 14 )
+centered = false
+hframes = 10
+vframes = 4
+frame = 36
+
+[node name="Score" type="Sprite" parent="HUD/HudElements/Info" index="1"]
+position = Vector2( -648, 392 )
+scale = Vector2( 3, 3 )
+centered = false
+script = ExtResource( 16 )
+current_scene_path = NodePath("../../../..")
+
+[node name="Num0" type="Sprite" parent="HUD/HudElements/Info/Score" index="0"]
+position = Vector2( 0, 16 )
+texture = ExtResource( 14 )
+centered = false
+hframes = 10
+vframes = 4
+
+[node name="Num1" type="Sprite" parent="HUD/HudElements/Info/Score" index="1"]
+position = Vector2( 16, 16 )
+texture = ExtResource( 14 )
+centered = false
+hframes = 10
+vframes = 4
+
+[node name="Num2" type="Sprite" parent="HUD/HudElements/Info/Score" index="2"]
+position = Vector2( 32, 16 )
+texture = ExtResource( 14 )
+centered = false
+hframes = 10
+vframes = 4
+
+[node name="Num3" type="Sprite" parent="HUD/HudElements/Info/Score" index="3"]
+position = Vector2( 48, 16 )
+texture = ExtResource( 14 )
+centered = false
+hframes = 10
+vframes = 4
+
+[node name="Num4" type="Sprite" parent="HUD/HudElements/Info/Score" index="4"]
+position = Vector2( 64, 16 )
+texture = ExtResource( 14 )
+centered = false
+hframes = 10
+vframes = 4
+
+[node name="Num5" type="Sprite" parent="HUD/HudElements/Info/Score" index="5"]
+position = Vector2( 80, 16 )
+texture = ExtResource( 14 )
+centered = false
+hframes = 10
+vframes = 4
+
+[node name="Num6" type="Sprite" parent="HUD/HudElements/Info/Score" index="6"]
+position = Vector2( 96, 16 )
+texture = ExtResource( 14 )
+centered = false
+hframes = 10
+vframes = 4
+
+[node name="Miss" type="Sprite" parent="HUD/HudElements/Info" index="2"]
+position = Vector2( -648, 392 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 17 )
+centered = false
+script = ExtResource( 18 )
+current_scene_path = NodePath("../../../..")
+
+[node name="Num0" type="Sprite" parent="HUD/HudElements/Info/Miss" index="0"]
+position = Vector2( 80, 0 )
+texture = ExtResource( 14 )
+centered = false
+hframes = 10
+vframes = 4
+
+[node name="Num1" type="Sprite" parent="HUD/HudElements/Info/Miss" index="1"]
+position = Vector2( 96, 0 )
+texture = ExtResource( 14 )
+centered = false
+hframes = 10
+vframes = 4
+
+[node name="Num2" type="Sprite" parent="HUD/HudElements/Info/Miss" index="2"]
+visible = false
+position = Vector2( 112, 0 )
+texture = ExtResource( 14 )
+centered = false
+hframes = 10
+vframes = 4
+
+[node name="Player" parent="Positions" index="0"]
+position = Vector2( 891, 592 )
+
+[node name="Enemy" parent="Positions" index="1"]
+position = Vector2( 153, 592 )
+
+[node name="Girlfriend" parent="Positions" index="2"]
+position = Vector2( 640, 566 )
+
+[node name="Rating" parent="Positions" index="3"]
+position = Vector2( 440, 324 )
+
+[node name="Camera" parent="." index="4"]
+visible = true
+position = Vector2( 480, 358 )
+
+[node name="Background" parent="." index="5"]
+z_index = -10
+z_as_relative = false
+
+[node name="TextureRect" type="TextureRect" parent="Background" index="0"]
+margin_left = 960.0
+margin_top = -2.0
+margin_right = 1680.0
+margin_bottom = -1.0
+rect_rotation = 90.0
+rect_scale = Vector2( 1, 962 )
+texture = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Ground" type="TileMap" parent="Background" index="1"]
+position = Vector2( 0, 72 )
+scale = Vector2( 3, 3 )
+tile_set = SubResource( 1 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 458751, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 524287, 1, 0, 458752, 1, 0, 458753, 1, 0, 458754, 1, 0, 458755, 1, 0, 458756, 1, 0, 458757, 1, 0, 458758, 1, 0, 458759, 1, 0, 458760, 1, 0, 458761, 1, 0 )
+script = ExtResource( 5 )
+speed = 192.0
+
+[node name="Tank" type="TileMap" parent="Background" index="2"]
+position = Vector2( 0, 72 )
+scale = Vector2( 3, 3 )
+tile_set = SubResource( 4 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( -65536, 4, 0, -65528, 4, 0, 0, 4, 0, 8, 4, 0, 9, 5, 0, 65536, 4, 0, 65538, 0, 0, 65539, 1, 0, 65540, 3, 0, 65544, 5, 0, 65545, 6, 0, 131072, 4, 0, 131080, 6, 0, 131081, 8, 0, 196608, 4, 0, 196613, 7, 0, 196616, 8, 0, 196617, 8, 0, 262144, 2, 0, 262145, 2, 0, 262146, 3, 0, 262148, 12, 0, 262149, 2, 0, 262150, 2, 0, 262151, 2, 0, 262152, 2, 0, 262153, 2, 0, 327680, 10, 0, 327681, 10, 0, 327682, 11, 0, 327684, 9, 0, 327685, 10, 0, 327686, 10, 0, 327687, 10, 0, 327688, 10, 0, 327689, 10, 0 )

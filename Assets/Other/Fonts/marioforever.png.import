@@ -1,0 +1,19 @@
+[remap]
+
+importer="dt.abfi"
+type="BitmapFont"
+path="res://.import/marioforever.png-60eebd3faa9dcf944c5b7beab817be3a.res"
+
+[deps]
+
+source_file="res://Assets/Other/Fonts/marioforever.png"
+dest_files=[ "res://.import/marioforever.png-60eebd3faa9dcf944c5b7beab817be3a.res" ]
+
+[params]
+
+ranges=PoolStringArray( "0", "9", "a", "z", "*", "*", "!", "!", ".", ".", "-", "-" )
+letter_spacing=0
+mipmaps=false
+filter=false
+anisotropic_filter=false
+convert_to_linear=false

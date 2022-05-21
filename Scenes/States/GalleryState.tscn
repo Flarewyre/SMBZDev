@@ -1,0 +1,112 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Assets/Sprites/UI/Gallery/BG.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Other/Fonts/arial.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scenes/Mobile/MobileMenuControls.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Sounds/scroll2.wav" type="AudioStream" id=4]
+[ext_resource path="res://Assets/Sounds/cancel.wav" type="AudioStream" id=5]
+[ext_resource path="res://Assets/Sounds/confirm.wav" type="AudioStream" id=6]
+[ext_resource path="res://Assets/Sprites/Characters/Mecha Sonic.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Other/Fonts/SuperMarioBrothers-4nmp.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://Assets/Other/Fonts/arialbi.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://Scripts/States/GalleryState.gd" type="Script" id=10]
+
+[sub_resource type="DynamicFont" id=4]
+size = 56
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 28
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 28
+use_filter = true
+font_data = ExtResource( 9 )
+
+[node name="GalleryState" type="Node2D"]
+script = ExtResource( 10 )
+
+[node name="Music" type="Node" parent="."]
+
+[node name="MusicStream" type="AudioStreamPlayer" parent="Music"]
+
+[node name="VocalStream" type="AudioStreamPlayer" parent="Music"]
+
+[node name="DebugBPMStream" type="AudioStreamPlayer" parent="Music"]
+
+[node name="Background" type="Sprite" parent="."]
+modulate = Color( 0.921569, 0.933333, 1, 1 )
+texture = ExtResource( 1 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Name" type="Label" parent="."]
+margin_top = 48.0
+margin_right = 960.0
+margin_bottom = 380.0
+custom_fonts/font = SubResource( 4 )
+text = "TURBO MECHA SONIC"
+align = 1
+
+[node name="Label" type="Label" parent="."]
+margin_left = 472.0
+margin_top = 265.0
+margin_right = 863.0
+margin_bottom = 594.0
+custom_fonts/font = SubResource( 3 )
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+autowrap = true
+clip_text = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 456.0
+margin_top = 254.0
+margin_right = 879.0
+margin_bottom = 257.0
+color = Color( 1, 1, 1, 0.447059 )
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 472.0
+margin_top = 214.0
+margin_right = 863.0
+margin_bottom = 266.0
+custom_fonts/font = SubResource( 5 )
+text = "From: Super Mario Bros. Z"
+align = 1
+autowrap = true
+clip_text = true
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 200, 385 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 7 )
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="MoveStream" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 4 )
+volume_db = 4.0
+
+[node name="ConfirmStream" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 6 )
+volume_db = 2.5
+
+[node name="CancelStream" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 5 )
+volume_db = 4.0
+
+[node name="Buttons" type="CanvasLayer" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="MobileMenuControls" parent="." instance=ExtResource( 3 )]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
