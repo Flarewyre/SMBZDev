@@ -2,6 +2,8 @@
 
 please dont use this for any mods yet, it is still very unstable and missing key features
 if you wanna use it anyways go for it im not gonna try and stop you
+
+^ lol fuck you i'm using it anyways, cry about it
  
 this project is still in its early stages
 a real readme will be avaliable soon
