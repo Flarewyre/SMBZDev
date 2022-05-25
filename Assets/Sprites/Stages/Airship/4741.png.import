@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bgFreaks.png-de19c992763426f0b743792dbb0743be.stex"
+path="res://.import/4741.png-ce0217c558f83117dbb8ad3e9888b645.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Stages/Pixel/bgFreaks.png"
-dest_files=[ "res://.import/bgFreaks.png-de19c992763426f0b743792dbb0743be.stex" ]
+source_file="res://Assets/Sprites/Stages/Airship/4741.png"
+dest_files=[ "res://.import/4741.png-ce0217c558f83117dbb8ad3e9888b645.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/weebTrees.png-f7e393f2e6314fe0262a217ba14d5e1f.stex"
+path="res://.import/4785.png-8685d2fe5abc7f926937050f26cdcee3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Stages/Pixel/weebTrees.png"
-dest_files=[ "res://.import/weebTrees.png-f7e393f2e6314fe0262a217ba14d5e1f.stex" ]
+source_file="res://Assets/Sprites/Stages/Airship/4785.png"
+dest_files=[ "res://.import/4785.png-8685d2fe5abc7f926937050f26cdcee3.stex" ]
 
 [params]
 

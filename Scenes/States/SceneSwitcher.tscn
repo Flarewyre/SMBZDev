@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Sounds/hit_sound.ogg" type="AudioStream" id=1]
 [ext_resource path="res://Scenes/States/TitleState.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/SceneSwitcher.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Sprites/UI/transition_mask.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Music/gameOver.ogg" type="AudioStream" id=5]
 
 [sub_resource type="Animation" id=5]
 resource_name = "RESET"
@@ -114,6 +115,7 @@ main_scene = ExtResource( 2 )
 pause_mode = 1
 
 [node name="MusicStream" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource( 5 )
 bus = "Music"
 
 [node name="VocalStream" type="AudioStreamPlayer" parent="Music"]

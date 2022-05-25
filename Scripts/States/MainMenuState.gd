@@ -1,5 +1,7 @@
 extends Node2D
 
+export(Array, String) var descriptions
+
 const BUTTON_SCENE = preload("res://Scenes/States/MainMenu/MainMenuButton.tscn")
 # var options = {"story": 3, "freeplay": 1, "options": 2, "donate": 0}
 var options = {"story mode": 3, "more games": 1, "options": 2, "gallery": 0}
@@ -35,6 +37,7 @@ func _process(_delta):
 		selected = 0
 	
 	selected += move
+	$Bar/Description.text = descriptions[selected]
 	
 	var i = 0
 	for button in $Buttons.get_children():

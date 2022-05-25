@@ -12,3 +12,5 @@ func play_song():
 func _input(event):
 	if can_input && event is InputEventKey && event.pressed:
 		Main.change_scene("res://Scenes/States/MainMenuState.tscn")
+	elif event is InputEventKey && event.is_action_pressed("ui_cancel") && Input.is_action_pressed("ui_select"):
+		Main.change_scene("res://Scenes/States/MainMenuState.tscn")

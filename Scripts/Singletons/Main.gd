@@ -6,7 +6,6 @@ const VOLUME_HUD = preload("res://Scenes/Other/VolumeHud.tscn")
 
 var STAGES = {
 	"stage": preload("res://Scenes/Stages/Stage.tscn"),
-	"halloween": preload("res://Scenes/Stages/Spooky.tscn"),
 	"plains": preload("res://Scenes/Stages/Plains.tscn"),
 	"airship": preload("res://Scenes/Stages/Airship.tscn"),
 	"forever": preload("res://Scenes/Stages/Forever.tscn"),

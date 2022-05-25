@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/weebSchool.png-c5c92b5fb9675d26aae744fda77a54a7.stex"
+path="res://.import/arrow.png-428f0c3ebdfcc297850622b3d536ed7c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Stages/Pixel/weebSchool.png"
-dest_files=[ "res://.import/weebSchool.png-c5c92b5fb9675d26aae744fda77a54a7.stex" ]
+source_file="res://Assets/Sprites/UI/Gallery/arrow.png"
+dest_files=[ "res://.import/arrow.png-428f0c3ebdfcc297850622b3d536ed7c.stex" ]
 
 [params]
 

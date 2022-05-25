@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/spooky_bg.png-92fc3ecf4da17d62b7e5466787bb39cf.stex"
+path="res://.import/Sheet.png-9ba9fc6fc746742fafaf813f7774a242.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Stages/Spooky/spooky_bg.png"
-dest_files=[ "res://.import/spooky_bg.png-92fc3ecf4da17d62b7e5466787bb39cf.stex" ]
+source_file="res://Assets/Sprites/Characters/Basilisx/Sheet.png"
+dest_files=[ "res://.import/Sheet.png-9ba9fc6fc746742fafaf813f7774a242.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

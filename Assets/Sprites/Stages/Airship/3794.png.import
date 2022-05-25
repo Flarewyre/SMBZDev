@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/weebSky.png-839acd09c19cfd2205f68f6aaf601525.stex"
+path="res://.import/3794.png-41f7a0c346f4ead72519d269b195d8cd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Stages/Pixel/weebSky.png"
-dest_files=[ "res://.import/weebSky.png-839acd09c19cfd2205f68f6aaf601525.stex" ]
+source_file="res://Assets/Sprites/Stages/Airship/3794.png"
+dest_files=[ "res://.import/3794.png-41f7a0c346f4ead72519d269b195d8cd.stex" ]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=false
-flags/mipmaps=false
+flags/mipmaps=true
 flags/anisotropic=false
 flags/srgb=2
 process/fix_alpha_border=true

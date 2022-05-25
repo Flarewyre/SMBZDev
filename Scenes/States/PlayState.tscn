@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Assets/Other/Fonts/vcr.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/States/PlayState.gd" type="Script" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Assets/Other/Fonts/SuperMario286-18qg.ttf" type="DynamicFontData" id=13]
 [ext_resource path="res://Assets/Sprites/UI/block.png" type="Texture" id=14]
 [ext_resource path="res://Assets/Other/Fonts/SuperMarioBrothers-4nmp.ttf" type="DynamicFontData" id=15]
+[ext_resource path="res://Scenes/States/PlayState/ActionLine.tscn" type="PackedScene" id=16]
 
 [sub_resource type="DynamicFont" id=9]
 size = 36
@@ -405,6 +406,8 @@ __meta__ = {
 anims/RESET = SubResource( 13 )
 anims/fight = SubResource( 14 )
 anims/ready = SubResource( 15 )
+
+[node name="ActionLine" parent="HUD/HudElements" instance=ExtResource( 16 )]
 
 [node name="Audio" type="Node2D" parent="."]
 
